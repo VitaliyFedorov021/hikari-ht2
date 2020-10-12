@@ -17,7 +17,7 @@ public class OfficeDaoImpl implements OfficeDao {
         PreparedStatement statement = null;
         try {
             connection = CONNECTOR.getConnection();
-            statement = connection.prepareStatement("SELECT * FROM offices LIMIT ? OFFSET ?");
+            statement = connection.prepareStatement("SELECT * FROM offices WHERE territory = 'EMEA' LIMIT ? OFFSET ?");
             loadData(statement);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
